@@ -115,6 +115,16 @@ compressed_pub = vk.to_string("compressed")
 compressed_hex = compressed_pub.hex()
 print(f"Compressed public key hex: {compressed_hex}")
 
+# For npub: Use x-only public key (drop parity byte from compressed pub)
+x_only_pub = compressed_pub[1:]  # 32 bytes
+x_only_hex = x_only_pub.hex()
+print(f"X-only public key hex (for npub): {x_only_hex}")
+
+# Encode to npub (Bech32 with hrp 'npub')
+npub_data5 = convertbits(list(x_only_pub), 8, 5, True)
+npub = bech32_encode('npub', npub_data5)
+print(f"Nostr npub: {npub}")
+
 # hash160 for pubkeyhash
 def hash160(x):
     return hashlib.new('ripemd160', hashlib.sha256(x).digest()).digest()
