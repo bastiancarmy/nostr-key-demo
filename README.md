@@ -4,9 +4,9 @@ This repository demonstrates how Nostr private and public keys (encoded as nsec/
 
 ## Repository Structure
 - **single-key-demo/**: Contains `nostr_key_demo.py`, which decodes a Nostr nsec to derive a private key, generates corresponding BTC (legacy), BCH (CashAddr), and ETH addresses, and illustrates CashTokens data for BCH transactions.
-  - [Read more](./single-key-demo/README.md)
+  - [Read more](./single-key/README.md)
 - **multi-key-demo/**: Contains `nostr_multi_address_demo.py`, which shows how to generate multiple BCH addresses from a Nostr npub using nonces, enabling senders to create unique addresses without the private key. Recipients use the nsec to derive child private keys.
-  - [Read more](./multi-key-demo/README.md)
+  - [Read more](./multi-key/README.md)
 - **requirements.txt**: Lists shared dependencies (e.g., `ecdsa`).
 - **.gitignore**: Ignores Python virtual environments and temporary files.
 
